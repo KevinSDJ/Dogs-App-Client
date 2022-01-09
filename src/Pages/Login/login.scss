@@ -1,0 +1,115 @@
+.l_block{
+    margin: 0 auto;
+    background-color: hsl(24, 51%, 21%);
+    min-height: calc(100vh - 30vh);
+    position: fixed;
+    width: 100vw;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: center;
+    bottom: 0;
+
+}
+.l_c_content{
+    margin: 0 auto;
+    position: absolute;
+    display: flex;
+    width: auto;
+    top:-60px;
+    background-color: #50301A;
+    padding: 1em 1em;
+    border-radius: 2em;
+    z-index: 3;
+}
+.l_form{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    text-align: left;
+    min-height:15em;
+    background-color: white;
+    align-items: center;
+    padding: 2em 3em;
+    border-radius: 1em;
+    justify-content: space-around;
+}
+.l_dt_section{
+    display: flex;
+    flex-direction: column;
+    gap: 1em 0;
+    & label{
+        display: flex;
+        flex-direction: column;
+        font-size: 24px;
+        color: #50301A;
+        & input{
+        font-size: 20px;
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid #50301A;
+        &:focus{
+            background-color: rgba(95, 158, 160,0.3);
+            border-radius: 5px;
+        }
+    }
+    }
+    
+}
+.l_btn_group{
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
+    font-size: 20px;
+    & button{
+       background-color: #50301A;
+       border-radius: 4px;
+       color: white;
+       min-width: 6em;
+       padding:5px 0;
+       border:1px solid white;
+       &:hover{
+           transition: ease-in 500ms;
+           background-color: rgba(80, 48, 26,0.4);
+       }
+    }
+    & .l_btn_cancel{
+       background-color:white;
+       border-radius: 5px;
+       color: #50301A;
+       min-width: 6em;
+       padding:5px 0;
+       border:1px solid #50301A;
+    }
+}
+.l_subBlock1{
+    position: absolute;
+    left: 0;
+    top: -300px;
+    height: 100vh;
+    min-width: 45%;
+    border-bottom-right-radius: 50em;
+    background-color:white;
+}
+.l_subBlock2{
+    position: absolute;
+    right: 0;
+    top: -300px;
+    height: 100vh;
+    min-width: 45%;
+    border-bottom-left-radius: 50em;
+    background-color:white;
+}
+
+
+.l_img_cont{
+    position: absolute;
+    padding: 20% 40%;
+    top: -130px;
+    background-image: url('../../media/kisspng-dog-grooming-puppy-pet-veterinarian-dogs-5ab3e2fb839b14\ 1.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+    min-height: fit-content;
+}

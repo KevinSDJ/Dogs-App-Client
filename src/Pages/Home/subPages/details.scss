@@ -1,0 +1,30 @@
+.dt_cont{
+    background-color: rgba(80, 48, 26,0.5);
+    margin: 0 auto;
+    height: 90vh;
+    backdrop-filter: blur(15px);
+}
+.dt_suBcont{
+    padding-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    section{
+        img{
+            max-height: 700px;
+        }
+        h2{
+            font-size: 40px;
+            font-weight: 200;
+        }
+        h5{
+            font-size: 18px;
+            margin: 10px auto;
+        }
+        span{
+            font-size: 20px;
+        }
+    }
+
+}

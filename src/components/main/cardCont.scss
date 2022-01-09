@@ -1,0 +1,15 @@
+.cd_subCont{
+    display: grid;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    grid-template-columns: repeat(4 , 25%);
+    grid-template-rows: repeat(2 , 1fr);
+    gap:1em;
+    justify-content: space-around;
+    background-color: #50301a51;
+    padding:3em 4em;
+    border-radius: 5px;
+    backdrop-filter: blur(15px);
+    height: 50vh;
+}

@@ -1,0 +1,28 @@
+.pg_subcont{
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    align-items: center;
+    margin-top: 1em;
+    li{
+        font-size: 18px;
+        border-radius: 4px;
+        list-style: none;
+        padding: 0.2em 0.2em;
+        width: 1.2em;
+        text-align: center;
+    }
+    button{
+        margin: 0 1%;
+        border-radius: 1em;
+        font-size: 20px;
+        font-weight: 800;
+        color: white;
+        background-color: cadetblue;
+        border:none;
+        padding: 0.2em 0.5em;
+        &:hover{
+            background-color: rgba(95, 158, 160, 0.624);
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.warning{
+    color:rgb(187, 2, 2);
+}
+.warning::before{
+    content:"!";
+}
+.succes{
+    color: rgb(3, 189, 3);
+    text-shadow: 1px 1px 1px black;
+}
+.succes::before{
+    content:" ";
+}

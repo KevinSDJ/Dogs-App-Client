@@ -1,0 +1,46 @@
+.home{
+    position: relative;
+    min-height: 100vh;
+    height: auto;
+   
+}
+.home::before{
+    content:" ";
+    z-index: -1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(80, 48, 26,0.5);
+    padding: 15%;
+    border-bottom-right-radius: 40em;
+    animation-name: circle-one;
+    animation-duration:10s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    @keyframes circle-one {
+      0%{
+          padding: 10%;
+      }
+      50%{
+          padding: 15%;
+      }
+      100%{
+          padding: 10%;
+      }
+    }
+  
+}
+  
+
+.home::after{
+    content: "";
+    position: fixed;
+    z-index: -2;
+    left: 0;
+    top: 0;
+    background-color: rgba(80, 48, 26,0.8);
+    padding: 25%;
+    border-bottom-right-radius: 60em;
+    
+
+}

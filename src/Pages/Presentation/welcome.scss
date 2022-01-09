@@ -1,0 +1,96 @@
+.w_content{
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: #50301A;
+    font-family: -apple-system,Roboto;
+   
+}
+.w_bg_img{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    z-index:2;
+    background-image: url('../../media/Rectangle\ 3\ \(2\).webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.w_dogs_img{
+    z-index: 2;
+    padding: 20%;
+    position: relative;
+    background-image: url('../../media/kisspng-german-shepherd-puppy-dog-breed-dog-houses-dogs-5aba18b8dc99b9\ 1\ \(1\).webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+.w_title{
+    margin: 0;
+    padding: 0;
+    font-size: 2.2em;
+    font-weight: 200;
+    color: white;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding: 0.2em 0;
+}
+.w_s_title{
+    font-size: 3.5em;
+    font-weight: 600;
+    color:white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 0.5em;
+}
+.w_title_icon{
+    position: absolute;
+    background-image:url('../../media/Group\ 1.webp') ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 20%;
+    right: -100px;
+   
+}
+.w_section_p{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;    
+}
+.w_section_izq{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5em;
+    position: relative;
+    z-index: 2;
+}
+.w_btn_group{
+    padding-top:15em;
+    font-size: 1.2em;  
+    display: flex;
+    justify-content: space-between; 
+}
+.w_btn{
+    background-color: #50301A;
+    border-radius: 4px;
+    color: white;
+    min-width: 6em;
+    padding:5px 0;
+    border:1px solid white;
+}
+.w_btn:hover{
+    transition: ease-in-out 400ms;
+    background-color: rgba(250, 248, 246, 0.1);
+
+}
+
+
+
+
+ 
