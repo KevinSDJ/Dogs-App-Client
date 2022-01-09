@@ -8,10 +8,6 @@ import './home.scss';
 
 
 export default function Home(){
-    
-   
-   
-    
     //navigate('/login')
     return(
         <div className="home">

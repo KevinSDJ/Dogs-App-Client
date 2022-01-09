@@ -63,7 +63,7 @@ export default function Create() {
             image: imag.url
         }
 
-        axios.post('http://localhost:3001/dog', d, { withCredentials: true })
+        axios.post('https://ksdj-dogs-api.herokuapp.com/dog', d, { withCredentials: true })
             .then(r => {
                 setName("")
                 setHeight(prev => { return { ...prev, min: "", max: "" } })

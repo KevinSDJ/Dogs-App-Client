@@ -24,7 +24,7 @@ export default function Login() {
 
     function onsubmit(e){
         e.preventDefault()
-        axios.post('http://localhost:3001/login',state,{withCredentials:true})
+        axios.post('https://ksdj-dogs-api.herokuapp.com/login',state,{withCredentials:true})
         .then(res=>{
             navigate("/home")
         })

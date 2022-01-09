@@ -23,7 +23,7 @@ export default function Register() {
     function onsubmit(e){
         e.preventDefault()
         let {username,email,password}= state
-        axios.post('http://localhost:3001/register',{username,email,password},{withCredentials:true})
+        axios.post('https://ksdj-dogs-api.herokuapp.com/register',{username,email,password},{withCredentials:true})
         .then(res=> navigate("/login"))
     }
 
