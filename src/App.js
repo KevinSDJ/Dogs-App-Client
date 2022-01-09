@@ -10,6 +10,7 @@ import Register from "./Pages/Register/register";
 import Login from "./Pages/Login/login";
 import Create from "./Pages/Home/subPages/create";
 import Details from "./Pages/Home/subPages/details";
+import 'normalize.css';
 
 
 
