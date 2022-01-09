@@ -86,7 +86,7 @@ export default function Create() {
     }
     function remove(e) {
         setTemp(prev => {
-            return { ...prev, temp: temperaments.temp.filter(i => e.target.id != i) }
+            return { ...prev, temp: temperaments.temp.filter(i => e.target.id !== i) }
         })
     }
     return (
