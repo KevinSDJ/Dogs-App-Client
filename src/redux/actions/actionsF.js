@@ -15,7 +15,7 @@ import axios from 'axios'
 
 function getAlldogs(){
     return function(dispatch){
-        axios.get('https://ksdj-dogs-api.herokuapp.com/dogs')
+        axios.get('http://localhost:3002/dogs')
         .then(res=>{
             dispatch({type:GET_ALL_DOGS,payload:res.data})
            
@@ -37,7 +37,7 @@ function filter(data){
 }
 function setTemperaments(){
     return function(dispatch){
-        axios.get('https://ksdj-dogs-api.herokuapp.com/temperament')
+        axios.get('http://localhost:3002/temperament')
         .then(res=>{
             dispatch({type:SET_TEMPERAMENTS,payload:res.data})
            
@@ -57,7 +57,7 @@ function ord(value,list){
 }
 function setSearchs(input,cb){
     return function(dispatch){
-        axios.get(`https://ksdj-dogs-api.herokuapp.com/dogs?name=${input}`)
+        axios.get(`http://localhost:3002/dogs?name=${input}`)
         .then(res=>{
             dispatch({type:SET_SEARCHS,payload:res.data})
         })

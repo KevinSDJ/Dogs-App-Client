@@ -10,7 +10,7 @@ export default function Logout(){
    
     function onsubmit(e){
         e.preventDefault()
-        axios.get('https://ksdj-dogs-api.herokuapp.com/logout',{withCredentials:true})
+        axios.get('http://localhost:3002/logout',{withCredentials:true})
         .then(resp=>{
             navigate('/')
         })
