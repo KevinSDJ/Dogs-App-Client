@@ -14,7 +14,7 @@
     }
     button{
         border-radius: 10em;
-        padding:10px 15px;
+        padding:15px 15px;
         color:white;
         position:relative;
         display:flex;
@@ -27,6 +27,7 @@
             font-weight: 800;
             font-size:20px;
             display:flex;
+            margin:0 auto;
         }
         &:hover{
             background-color: rgba(95, 158, 160, 0.624);
