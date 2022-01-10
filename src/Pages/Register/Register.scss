@@ -88,7 +88,7 @@
     height: 80vh;
     min-width: 45%;
     border-top-right-radius: 50em;
-    background-color:white;
+    background-color: #50301A;
 }
 .r_subBlock2{
     position: absolute;
@@ -97,13 +97,13 @@
     height: 100vh;
     min-width: 45%;
     border-top-left-radius: 50em;
-    background-color: white;
+    background-color:  #50301A;
 }
 .r_subBlock1::before{
     content: " ";
     left: 0;
     position: fixed;
-    background-color: white;
+    background-color: #50301A;
     min-width: 100vw;
     min-height: 20%;
     bottom: 0;
