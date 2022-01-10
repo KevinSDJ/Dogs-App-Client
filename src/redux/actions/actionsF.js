@@ -15,7 +15,7 @@ import axios from 'axios'
 
 function getAlldogs(){
     return function(dispatch){
-        axios.get('https://ksdj-dogs-api.herokuapp.com//dogs')
+        axios.get('https://ksdj-dogs-api.herokuapp.com/dogs')
         .then(res=>{
             dispatch({type:GET_ALL_DOGS,payload:res.data})
            
