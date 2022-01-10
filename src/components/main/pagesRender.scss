@@ -19,15 +19,16 @@
         position:relative;
         display:flex;
         border:none;
-        align-content: center;
-        justify-content: space-around;
+        align-items: center;
+        justify-content: center;
         background-color: cadetblue;
         .arrow{
+            padding:0;
+            margin:0;
             position:absolute;
             font-weight: 800;
             font-size:20px;
-            display:flex;
-            margin:0 auto;
+            display:flex; 
         }
         &:hover{
             background-color: rgba(95, 158, 160, 0.624);
