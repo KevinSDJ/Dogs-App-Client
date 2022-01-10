@@ -15,7 +15,7 @@ export default function Details() {
         <div className="dt_cont">
             <div className="dt_suBcont">
                 <section>
-                    <img loading="lazy"  width="600"  src={raceDetail[0].image} alt={raceDetail[0].name} />
+                    <img loading="lazy"  src={raceDetail[0].image} alt={raceDetail[0].name} />
                 </section>
                 <section>
                     <h2>{raceDetail[0].name}</h2>
