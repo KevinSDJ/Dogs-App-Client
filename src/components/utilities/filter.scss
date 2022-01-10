@@ -13,7 +13,7 @@
 }
 
 .icon_filter {
-  padding: 10px 10px;
+  padding: 15px 15px;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAEw0lEQVR4nO3dTWhcVRQH8P+ZSSYIYtCFFNwUPxAMhGTufZORhmBAiLpw4cfCj7hQ6EarVsRFdSW6iLiwuikVBatFxbS4cOEXiEUwOvOGgGYhmpi2WiiWiDNZTJN577jIRELVSe997827M+/8tsM555I/7837nABCCCGEEEIIIYQQQvQGilK8sLBw1cDAwAyA62NaT09j5uUgCD4vl8t12x7WgVQqlUeI6DUAV9v26FNrRPSUUuo9m2KrQNphvGNTmxVENGsTinEg7d3UKmTL2M1as9ncOzk52TApyplOGRwcvAMSxuW4ZmhoaMa0yDgQZr7BtCariOgm0xqbQIZMa7LK5m9lHIhIlgTiGAnEMRKIYyQQxxgHksvlNpJYSD+y+VvZHPYanXlm3F+mBTaBnDatySpmXjWtMQ4kDMMfTGuyKpfL/WhcY1owMTHxK4Bl07oMWi4Wi8Z7E9ujrI8t6zKDiE7Y1FkFQkRHAIQ2tRkRMvNRm0KrQJRSvwB436Y2C4jouNbaarce5cTwEAA5BP63ehAEz9sWWweitT7DzE/Y1vcrInq8VCqdta2PdOnE87xjAF6N0qPPzNk+3LAt0mNAAMDM5Pv+YQAHovbqcYeVUgeJiKM0iXxxkYhYa/0kMz8DoBW1Xw9qEdFBrfXTUcMAYthCdqrValNhGH4IYE+cfR12gZkf8Dzvy7gaxhoIACwuLl7XarXmAZTj7u2YWj6fv3d8fNz4elUnsd8PGRsb+314ePg2AK/H3dsVRPTuxsbGZNxhAAlsITu1n3A8AuCKJOd00UUiOqCUejOpAYkGAgDVarUI4ASAvUnPSthvAO7TWn+X5JDEb+FqrWsAPABfJD0rKcx8qtVq6aTDALp0T11rfWFlZeVOAHMAIh8adhMzHyWi28vl8vluzEt8l3WpSqVyNxEdAzDc7dmG1gE8qrX+qJtDux4IAFQqlZuJ6CSAW9KYfxl+ZuZ7PM8zvuMXVSqPAXme91Oz2Szb3sRJ2Cf5fL6URhhASlvItvZ1sOcAvAwgn+ZasPXd9opS6hARpXbzLdVAtlWr1WkAHwC4NqUlrBHRg0qpz1Ka/w8nnlzUWn8VhqEmokoK4xeZ2XMhDMCRQACgVCqdrdfrU0T0dhfHHgewz/O8lS7O7MiJXdalfN/fz8xvACgkNKIF4AWt9VxC/a05GQgALC0tXRkEwWASvfP5/ObIyMh6Er2FEEIIIQA4fJQFAL7vzzDzY3H2JKK3XDkJ/C8DaS9gFzcCuD/mnl8DcDYQZ87UxRYJxDESiGMkEMdIII6RQBwjgThGAnGMBOIYCcQxEohjJBDHSCCOkUAck8VA/kh7AZ1kLZDzm5ubn6a9iE6yFMhpAHdF+d8e3ZCVQOYLhcJ4+/U6p7l+CzeqBhE9q5Sy+u2qNPRzIN8T0UPt3/bqGf24ywqw9XLpZK+FAfTfFnIml8vNFovFU2kvxFY/BTJfKBT2j46O/pn2QqLoh0B67ou7E6cDYeaLu3z+LYCHtdbOvAEVldNf6sy88D8fBQBeXF9fn3LpdbQ4OP1sLwD4vv8SM+/8lc9VALNa62/SWlOSnA8EAGq12q1hGO4DcK7RaJycnp5upr0mIYQQQgghhBBCCCGy7m9fBEemV7pztwAAAABJRU5ErkJggg==');
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,7 +50,7 @@
       border-radius: 0;
       background: #f0f0f0;
       color: #7b7b7b;
-      font-size: 0.5em;
+      font-size: 1em;
       color: rgb(85, 83, 83);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       border: 1px solid rgba(0, 0, 0, 0.2);
