@@ -28,11 +28,11 @@ export default function PagesRender({ pages, setCurrP, currentPage }) {
     if (pages) {
         return (
         <div className="pg_subcont">
-            <button id="prev" onClick={handleNextOrPrev}><span>{'<'}</span></button>
+            <button id="prev" onClick={handleNextOrPrev}><span className="arrow">{'<'}</span></button>
             {currentPage > 1 ? pages.map(e => e < currentPage && <li key={e} id={e} onClick={handleClick}>{e}</li>) : null}
             {pages.map(e => e === currentPage && <li style={{ backgroundColor: "gray",color:"white"}} key={e} id={e} onClick={handleClick}>{e}</li>)}
             {currentPage < pages.length ? pages.map(e => e > currentPage && <li key={e} id={e} onClick={handleClick}>{e}</li>) : null}
-            <button id="next" onClick={handleNextOrPrev} ><span>{'>'}</span></button>
+            <button id="next" onClick={handleNextOrPrev} ><span className="arrow">{'>'}</span></button>
         </div>
         )
     } else {
