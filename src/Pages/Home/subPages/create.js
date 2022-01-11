@@ -41,7 +41,6 @@ export default function Create() {
         } else if (e.target.className === "years") {
             Number(e.target.value) < 18 && setYears(prev => { return { ...prev, [e.target.name]: e.target.value } })
         } else if (e.target.className === "temperaments") {
-            console.log(e.target.value)
             setTemp(prev => {
                 return { ...prev, temp: [...temperaments.temp, Number(e.target.value)] }
 
@@ -86,7 +85,7 @@ export default function Create() {
     }
     function remove(e) {
         setTemp(prev => {
-            return { ...prev, temp: temperaments.temp.filter(i => e.target.id !== i) }
+            return { ...prev, temp: temperaments.temp.filter(i => Number(e.target.id) !== Number(i)}
         })
     }
     return (
