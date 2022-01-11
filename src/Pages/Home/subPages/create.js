@@ -79,13 +79,13 @@ export default function Create() {
     }
     function add(e) {
         setTemp(prev => {
-            return { ...prev, temp: [...temperaments.temp, document.getElementById("addTemp").value] }
+            return { ...prev, temp: [...temperaments.temp,document.getElementById("addTemp").value] }
         })
         setTimeout(() => { document.getElementById("addTemp").value = "" }, (1000))
     }
     function remove(e) {
         setTemp(prev => {
-            return { ...prev, temp: temperaments.temp.filter(i => Number(e.target.id) !== Number(i)}
+            return { ...prev, temp: temperaments.temp.filter(i => Number(e.target.id)!== Number(i))}
         })
     }
     return (
