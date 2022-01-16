@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    section{
+    &>section>{
         img{
             min-width: auto;
             height: 500px;
