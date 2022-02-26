@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './login.scss';
-import axios from 'axios';
 
+import {singIn} from '../../redux/actions/actionsF'
+import {useDispatch, useSelector} from 'react-redux';
 
 
 
@@ -12,23 +13,23 @@ export default function Login() {
         email:"",
         password:""
     })
-    
+    let {login}=useSelector(state=>state)
     let navigate= useNavigate()
+    let dispatch= useDispatch()
     function handleChange(e){
         setState(prev=>{
             let r={...prev,[e.target.name]:e.target.value}
             return r
         })
     }
-    
-
+    useLayoutEffect(()=>{
+        if(login){
+            navigate('/home')
+        }
+    },[login, navigate])
     function onsubmit(e){
         e.preventDefault()
-        axios.post('https://ksdj-dogs-api.herokuapp.com/login',state,{withCredentials:true})
-        .then(res=>{
-            navigate("/home")
-        })
-        .catch(e=>navigate('/register'))
+        dispatch(singIn(state))
     }
     
     return (

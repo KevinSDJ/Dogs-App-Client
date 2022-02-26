@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,lazy,Suspense} from "react";
 import { useDispatch } from "react-redux";
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Home from "./Pages/Home/home";
 import Main from "./Pages/Home/subPages/main";
-import Welcome from "./Pages/Presentation/welcome";
 import { getAlldogs, setDogsUse, setTemperaments } from "./redux/actions/actionsF";
-import Register from "./Pages/Register/register";
-import Login from "./Pages/Login/login";
 import Create from "./Pages/Home/subPages/create";
 import Details from "./Pages/Home/subPages/details";
 import './App.css';
 import 'normalize.css';
-
+const Welcome= lazy(()=>import("./Pages/Presentation/welcome"))
+const Register =lazy(()=> import("./Pages/Register/register"))
+const Login =lazy(()=>import("./Pages/Login/login"))
 
 
 export default function App() {
@@ -23,20 +22,24 @@ export default function App() {
       dispatch(setDogsUse())
     },(2000))
   },[dispatch])
-
- 
-
- 
- 
- 
  
   return (
     <BrowserRouter>
     <div className="App">
       <Routes>
-      <Route  path="/" element={<Welcome/>}/>
-      <Route path="/register" element={<Register/>}/>
-      <Route path="/login" element={<Login/>}/>
+      <Route  path="/" 
+      element={
+        <Suspense fallback={<div>Loading...........</div>}>
+           <Welcome/>
+        </Suspense>}/>
+      <Route path="/register"
+      element={
+        <Suspense fallback={<div>Loading...........</div>}>
+           <Register/>
+        </Suspense>}/>}/>
+      <Route path="/login" element={<Suspense fallback={<div>Loading...........</div>}>
+           <Login/>
+        </Suspense>}/>}/>
       <Route path="/home" element={<Home/>}>
         <Route path="" element={<Main/>}/>
         <Route path="create" element={<Create/>}/>

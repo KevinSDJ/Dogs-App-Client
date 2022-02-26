@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useLayoutEffect } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './Register.scss';
-import axios from 'axios';
+import {registerUser} from '../../redux/actions/actionsF.js'
+import {useDispatch,useSelector} from 'react-redux';
 
 
 
@@ -13,6 +14,8 @@ export default function Register() {
         email:"",
         password:""
     })
+    let {reg}=useSelector(state=>state)
+    let dispatch= useDispatch()
     let navigate= useNavigate()
     function handleChange(e){
         setState(prev=>{
@@ -20,18 +23,18 @@ export default function Register() {
             return r
         })
     }
+    useLayoutEffect(()=>{
+        if(reg){
+            navigate('/login')
+        }
+    },[navigate, reg])
+
     function onsubmit(e){
         e.preventDefault()
-        let {username,email,password}= state
-        axios.post('https://ksdj-dogs-api.herokuapp.com/register',{username,email,password},{withCredentials:true})
-        .then(res=> navigate("/login"))
+        dispatch(registerUser(state))
     }
-
     return (
-        <div className="r_block">
-            <div className="r_subBlock1"></div>
-            <div className="r_subBlock2"></div>
-            <div className="r_c_content">
+        <div id="registerContent">
                 <form className="r_form" onSubmit={onsubmit} autoComplete="off">
                     <div className="r_img_cont"></div>
                     <div className="r_dt_section">
@@ -53,6 +56,5 @@ export default function Register() {
                         <button className="r_btn_cancel" type="button" onClick={()=>navigate('/')}>cancel</button>
                     </div>
                 </form>
-            </div>
-        </div>)
+            </div>)
 }

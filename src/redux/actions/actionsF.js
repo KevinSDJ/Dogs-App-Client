@@ -10,12 +10,21 @@ import {
     WEIGHT_MIN,
     WEIGHT_MAX,
     SET_SEARCHS,
-    CLEAN_SEARCH} from './actionsT'
+    CLEAN_SEARCH,
+    LOGIN,
+    ERROR,
+    REGISTER
+} from './actionsT'
 import axios from 'axios'
+import env from 'react-dotenv';
+
+let {URL_DEV}= env
+let URL=URL_DEV?URL_DEV.toString():"https://ksdj-dogs-api.herokuapp.com"
 
 function getAlldogs(){
     return function(dispatch){
-        axios.get('https://ksdj-dogs-api.herokuapp.com/dogs')
+        console.log(URL_DEV)
+        axios.get(URL+`/dogs`)
         .then(res=>{
             dispatch({type:GET_ALL_DOGS,payload:res.data})
            
@@ -37,7 +46,7 @@ function filter(data){
 }
 function setTemperaments(){
     return function(dispatch){
-        axios.get('https://ksdj-dogs-api.herokuapp.com/temperament')
+        axios.get(URL+`/temperament`)
         .then(res=>{
             dispatch({type:SET_TEMPERAMENTS,payload:res.data})
            
@@ -57,7 +66,7 @@ function ord(value,list){
 }
 function setSearchs(input,cb){
     return function(dispatch){
-        axios.get(`https://ksdj-dogs-api.herokuapp.com/dogs?name=${input}`)
+        axios.get(URL+`/dogs?name=${input}`)
         .then(res=>{
             dispatch({type:SET_SEARCHS,payload:res.data})
         })
@@ -68,8 +77,31 @@ function setSearchs(input,cb){
         })
     }
 }
+
 function cleanSearch(){
     return {type:CLEAN_SEARCH}
+}
+
+
+function registerUser(data){
+    return (dispatch)=>{
+         axios.post(URL+`/register`,data,{withCredentials:true})
+         .then(resp=>{
+            dispatch({type:REGISTER})
+         },(error)=>{
+            dispatch({type:ERROR,payload:error})
+         })
+    }
+}
+function singIn(data){
+    return (dispatch)=>{
+        axios.post(URL+`/login`,data,{withCredentials:true})
+        .then(resp=>{
+            dispatch({type:LOGIN,payload:resp.data.user})
+        },(error)=>{
+            dispatch({type:ERROR,payload:error})
+        })
+    }
 }
 
 
@@ -77,4 +109,4 @@ function cleanSearch(){
 
 
 
-export{getAlldogs,setDogsUse,filter,setTemperaments,ord,setSearchs,cleanSearch}
+export{getAlldogs,setDogsUse,filter,setTemperaments,ord,setSearchs,cleanSearch,registerUser,singIn}

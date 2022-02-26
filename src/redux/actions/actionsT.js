@@ -10,6 +10,9 @@ const WEIGHT_MIN="weight_min";
 const WEIGHT_MAX="weight_max";
 const SET_SEARCHS="set_searchs";
 const CLEAN_SEARCH="clean_search";
+const REGISTER="REGISTER";
+const LOGIN="LOGIN"
+const ERROR="ERROR"
 
 
 export{
@@ -23,4 +26,9 @@ export{
     ORDER_ZA,
     WEIGHT_MIN,
     WEIGHT_MAX,
-    SET_SEARCHS,CLEAN_SEARCH}
+    SET_SEARCHS,
+    CLEAN_SEARCH,
+    REGISTER,
+    LOGIN,
+    ERROR
+}

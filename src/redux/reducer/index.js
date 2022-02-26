@@ -12,16 +12,22 @@ import {
     SET_SEARCHS,
     CLEAN_SEARCH,
     WEIGHT_MIN,
-    WEIGHT_MAX} from '../actions/actionsT'
+    WEIGHT_MAX,
+    REGISTER,
+    LOGIN
+} from '../actions/actionsT'
 
 
 
 let initState={
+    user:'',
     dogs:[],
     dogsUse:[],
     temperaments:[],
-    searchs:[]
-    
+    searchs:[],
+    errors:{},
+    reg:false,
+    login:false
 }
 
 
@@ -51,6 +57,10 @@ export default function root(state=initState,action){
             return {...state,searchs:state.searchs.concat(action.payload)}
         case CLEAN_SEARCH:
             return {...state,searchs:[]}
+        case REGISTER:
+            return {...state,reg:true}
+        case LOGIN:
+             return {...state,user:action.payload,login:true}
         default:return state
     }
 }
