@@ -19,13 +19,13 @@ return (
                       <p className="w_title">Welcome to</p>
                       <h5 id="w_s_title">DogsApp <span className="w_title_icon"></span></h5>
                    </div>
-                   <div id="w_btn_group">
+                    <div id="w_btn_group">
                        <button className="w_btn" onClick={()=>navigate('login')}>login</button>
                        <button className="w_btn" onClick={()=>navigate('register')}>register</button>
-                   </div>
-                </div>
+                     </div>
+                  </div>
                 <div id="w_dogs_img">
-                </div>
+               </div>
             </div>
         </div>
     )
