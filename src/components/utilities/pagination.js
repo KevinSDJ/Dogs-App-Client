@@ -19,7 +19,7 @@ export default function Paginate() {
         })
         return ()=>sizeScreen
     },[sizeScreen])
-  const dogsXpage = sizeScreen>=1200&& 15||8
+  const dogsXpage = sizeScreen>=1200?15:8
   let dogsuse = useSelector(state => state.dogsUse)
   let search = useSelector(state => state.searchs)
 
