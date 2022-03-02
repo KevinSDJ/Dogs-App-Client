@@ -70,3 +70,21 @@
     }
   }
 }
+
+
+@media screen and(min-width: 320px) and(max-width: 1000px){
+  .icon_filter {
+    padding: 10px 10px;
+  }
+  #filtre{
+    position:absolute;
+    bottom:-180px;
+    left: -60px;
+    z-index: 2;
+    padding:0.5em;
+    label{
+      flex-direction: column;
+      color: white;
+    }
+  }
+}

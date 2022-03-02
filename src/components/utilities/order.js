@@ -18,8 +18,7 @@ export default function Order(){
     },[dispatch, order])
     return(
     <form className="order_form"> 
-        <span>Order by</span>
-      
+        <span>Order</span>
         <select onClick={(e)=>{setOrder(e.target.value)}}>
             <option value="default">default</option>
             <option value="A-Z">A-Z</option>
