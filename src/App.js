@@ -6,8 +6,6 @@ import Main from "./Pages/Home/subPages/main";
 import { getAlldogs, setDogsUse, setTemperaments } from "./redux/actions/actionsF";
 import Create from "./Pages/Home/subPages/create";
 import Details from "./Pages/Home/subPages/details";
-import './App.css';
-import 'normalize.css';
 const Welcome= lazy(()=>import("./Pages/Presentation/welcome"))
 const Register =lazy(()=> import("./Pages/Register/register"))
 const Login =lazy(()=>import("./Pages/Login/login"))
@@ -25,7 +23,6 @@ export default function App() {
  
   return (
     <BrowserRouter>
-    <div className="App">
       <Routes>
       <Route  path="/" 
       element={
@@ -46,8 +43,6 @@ export default function App() {
         <Route path=":id" element={<Details/>}/>
       </Route>
     </Routes>
-    </div>
-    
   </BrowserRouter>
    
   );

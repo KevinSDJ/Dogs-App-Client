@@ -33,14 +33,10 @@ export default function Login() {
     }
     
     return (
-        <div className="l_block">
-            <div className="l_subBlock1"></div>
-            <div className="l_subBlock2"></div>
-            <div className="l_c_content">
-                <form className="l_form" onSubmit={onsubmit} autoComplete="off">
-                    <div className="l_img_cont"></div>
-                    <div className="l_img_cont"></div>
-                    <div className="l_dt_section">
+        <div id="loginContent">
+                <form id="l_form" onSubmit={onsubmit} autoComplete="off">
+                    <div id="l_img_cont"></div>
+                    <div id="l_dt_section">
                         <label htmlFor="email">
                             Email:
                             <input id="email" name="email" type="email" onChange={handleChange} required />
@@ -50,12 +46,11 @@ export default function Login() {
                             <input id="password" name="password" type="password" onChange={handleChange} required />
                         </label>
                     </div>
-                    <div className="l_btn_group">
+                    <div id="l_btn_group">
                         <button type="submit" >login</button>
                         <button className="l_btn_cancel" type="button" onClick={()=>navigate('/')}>cancel</button>
                     </div>
                 </form>
-            </div>
         </div>)
     
     

@@ -6,7 +6,7 @@
     justify-content:center;
     background-color: #50301A;
 }
-.r_form{
+#r_form{
     display: flex;
     align-items:center;
     position: relative;
@@ -20,7 +20,7 @@
     justify-content: space-around;
     box-sizing:content-box;
 }
-.r_dt_section{
+#r_dt_section{
     display:flex;
     width:80%;
     justify-content: center;
@@ -77,7 +77,7 @@
     }
 }
 
-.r_img_cont{
+#r_img_cont{
     position: absolute;
     padding: 20% 40%;
     top: -100px;
@@ -85,6 +85,5 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
- 
     min-height: fit-content;
 }

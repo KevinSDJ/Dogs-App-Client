@@ -8,12 +8,12 @@ import {useSelector} from 'react-redux'
 
 
 export default function Home(){
-    let {user}=useSelector(state=>state)
+    let {userData}=useSelector(state=>state)
     useEffect(()=>{
-        if(user){
+        if(userData){
             console.log(useReducer)
         }
-    },[user])
+    },[userData])
     return(
         <div className="home">
             <Nav/>

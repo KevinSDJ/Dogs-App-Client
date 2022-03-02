@@ -20,7 +20,7 @@ import {
 
 
 let initState={
-    user:'',
+    userData:{},
     dogs:[],
     dogsUse:[],
     temperaments:[],
@@ -60,7 +60,7 @@ export default function root(state=initState,action){
         case REGISTER:
             return {...state,reg:true}
         case LOGIN:
-             return {...state,user:action.payload,login:true}
+             return {...state,userData:action.payload,login:true}
         default:return state
     }
 }

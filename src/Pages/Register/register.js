@@ -35,9 +35,9 @@ export default function Register() {
     }
     return (
         <div id="registerContent">
-                <form className="r_form" onSubmit={onsubmit} autoComplete="off">
-                    <div className="r_img_cont"></div>
-                    <div className="r_dt_section">
+                <form id="r_form" onSubmit={onsubmit} autoComplete="off">
+                    <div id="r_img_cont"></div>
+                    <div id="r_dt_section">
                         <label htmlFor="username">
                             Username:
                             <input id="username" name="username" type="text"  onChange={handleChange} required/>
