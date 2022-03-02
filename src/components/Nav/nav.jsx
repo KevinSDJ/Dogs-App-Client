@@ -13,6 +13,7 @@ export default function Nav(){
         window.addEventListener('resize',(e)=>{
             setSizeScreen(window.innerWidth)
         })
+        return ()=>sizeScreen
     },[sizeScreen])
     return(
     <header className="header">
@@ -27,8 +28,8 @@ export default function Nav(){
            <Menu/>
            {sizeScreen<=1024?null: <ul className="links">
                <li><Link className="link" to="create">create</Link></li>
-           </ul>&&<Logout/>}
-           
+           </ul>}
+           {sizeScreen<=1024?null:<Logout/>}
         </nav>
     </header>
     )

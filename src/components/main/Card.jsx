@@ -14,6 +14,7 @@ function CardDogs({ id, name, image, weight, temperament,origin}) {
             setisLoading(!isLoading)
         },(1000));
         }
+        return ()=>isLoading
          
     },[isLoading])
 

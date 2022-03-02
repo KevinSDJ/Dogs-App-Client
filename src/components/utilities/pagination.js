@@ -1,19 +1,25 @@
-import React from "react";
+import React ,{lazy,Suspense,useState,useEffect}from "react";
 import './pagination.scss';
 import { useSelector } from 'react-redux';
 import CardContent from "../main/cardContent";
-import PagesRender from "../main/pagesRender";
 import ClearSearch from "../Search/clearSearch";
 
 
 
 
-
+const PagesRender= lazy(()=>import("../main/pagesRender"))
 
 
 export default function Paginate() {
   const [currentPage, setCurrP] = React.useState(1)
-  const dogsXpage = 8
+  const [sizeScreen ,setSizeScreen]= useState(window.innerWidth)
+    useEffect(()=>{
+        window.addEventListener('resize',(e)=>{
+            setSizeScreen(window.innerWidth)
+        })
+        return ()=>sizeScreen
+    },[sizeScreen])
+  const dogsXpage = sizeScreen>=1200&& 15||8
   let dogsuse = useSelector(state => state.dogsUse)
   let search = useSelector(state => state.searchs)
 
@@ -29,7 +35,9 @@ export default function Paginate() {
   return (
     <div>
       <div className="pg_content">
-        <PagesRender setCurrP={setCurrP} pages={pagesNumber} currentPage={currentPage} />
+        <Suspense fallback={<div>Loading</div>}>
+          <PagesRender setCurrP={setCurrP} pages={pagesNumber} currentPage={currentPage} />
+        </Suspense>
       </div>
       <div className="cd_content">
         <ClearSearch />

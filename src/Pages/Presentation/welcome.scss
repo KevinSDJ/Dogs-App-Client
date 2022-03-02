@@ -63,7 +63,7 @@
           justify-content: space-around;    
         }
       }
-      .w_btn_group{
+      #w_btn_group{
           padding-top:15em;
           font-size: 1.2em;  
           display: flex;
@@ -83,6 +83,28 @@
 
 
     }
+}
+
+@media screen and(min-width: 300px) and (max-width:760px){
+  #w_content{
+    align-items:flex-start;
+  }
+  #w_Box{
+     grid-template-columns: repeat(1, 1fr);
+     grid-template-rows:auto;
+     height: 70%;
+  }
+  #w_section_izq{
+    justify-content: flex-start;
+  }
+  #w_section_izq{
+    align-items:center;
+  }
+  #w_btn_group{
+    position:absolute;
+    bottom:2em;
+    margin: 0 auto;
+  }
 }
 
 
