@@ -95,7 +95,7 @@
      width: 100%;
      #w_btn_group{
       position:fixed;
-      flex-direction: column;
+      flex-direction: row-reverse;
       bottom:2em;
       padding:0;
       width: 100%;
@@ -104,6 +104,7 @@
      }
      .w_btn:hover{
         color: #50301A;
+        border:1px solid #50301A;
       }
 
     }
