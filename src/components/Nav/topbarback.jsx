@@ -7,6 +7,7 @@ export default function TopNavBack(){
    return(
    	<div id="BackNav">
    	      <div id="IconBack" onClick={()=>navigate("/home")}>
+                {"<"}
    	      </div>
    	</div>)
 }

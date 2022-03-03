@@ -7,16 +7,26 @@
 	align-items:center;
 	z-index: 2;
 	#IconBack{
-		background-image:url("https://img.icons8.com/fluency-systems-regular/96/000000/back.png");
-		background-size:cover;
-		background-repeat:no-repeat;
-		background-position:center;
-		padding:15px 15px;
+		animation-name:Arrow;
+		animation-duration:2s;
+	    animation-iteration-count:infinite;
+		font-size: 2em;
 		margin-left: 20px;
+		font-weight: 500;
+		color: white;
 		&:hover{
-			border-radius:4em;
-			border:0.2em solid white;
-			box-shadow: inset 0px 0px 10px lightgray;
+			border-bottom:1px solid white;
 		}
+	}
+}
+@keyframes Arrow{
+	0%{
+		margin-left: 20px;
+	}
+	50%{
+		margin-left: 30px;
+	}
+	100%{
+		margin-left: 20px;
 	}
 }
