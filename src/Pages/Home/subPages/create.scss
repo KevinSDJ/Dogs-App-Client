@@ -127,3 +127,34 @@
         }
     }
 }
+
+
+@media screen and(min-width: 500px) and(max-width: 760px){
+    #createContent{
+    form{
+        width: 400px;
+    }
+}
+}
+
+@media screen and(min-width: 320px) and(max-width: 500px){
+    #createContent{
+    form{
+        width: 350px;
+    }}
+    .fieldset{
+     font-size: 14px;
+     font-weight: 400;
+    }
+    .labels{
+    font-size: 14px;
+    button{
+        width: 2.5em;
+        text-align: center;
+        margin: 0 auto;
+    }}
+    .fc_btn_group{
+    font-size: 16px;
+    font-weight: 800;
+    }
+}

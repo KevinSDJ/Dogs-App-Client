@@ -81,3 +81,18 @@
 
 
 }
+
+@media screen and(min-width: 320px) and (max-width:500px){
+   #l_form{
+      width: 350px;
+      #l_img_cont{
+         top: -120px;
+      }
+      #l_dt_section{
+         & label{
+            font-size: 18px;
+         }
+      }
+   }
+
+}

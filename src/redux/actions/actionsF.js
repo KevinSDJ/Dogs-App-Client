@@ -23,7 +23,6 @@ let URL=URL_DEV||"https://ksdj-dogs-api.herokuapp.com"
 
 function getAlldogs(){
     return function(dispatch){
-        console.log(URL_DEV)
         axios.get(URL+`/dogs`)
         .then(res=>{
             dispatch({type:GET_ALL_DOGS,payload:res.data})

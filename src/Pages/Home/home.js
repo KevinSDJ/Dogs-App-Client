@@ -8,11 +8,6 @@ import {useSelector} from 'react-redux'
 
 export default function Home(){
     let {userData}=useSelector(state=>state)
-    useEffect(()=>{
-        if(userData){
-            console.log(useReducer)
-        }
-    },[userData])
     return(
         <div className="home">
             <div>

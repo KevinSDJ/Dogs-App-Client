@@ -9,12 +9,11 @@ import LoadingSpinner from "./loadingCard";
 function CardDogs({ id, name, image, weight, temperament,origin}) {
     const [isLoading,setisLoading]= useState(true)
     useLayoutEffect(()=>{
+        let timer
         if(isLoading){
-            setTimeout(()=>{
-            setisLoading(!isLoading)
-        },(1000));
+            timer=setTimeout(()=>{setisLoading(!isLoading)},(1000));
         }
-        return ()=>isLoading
+        return ()=>clearTimeout(timer)
          
     },[isLoading])
 

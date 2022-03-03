@@ -7,21 +7,26 @@ export default function Menu(){
 	const [sizeScreen ,setSizeScreen]= useState(window.innerWidth)
 	const [open,setOpen]= useState(false)
 	useEffect(()=>{
+		let cancel=false
 		window.addEventListener('resize',(e)=>{
-			setSizeScreen(window.innerWidth)
+			if(!cancel){
+                setSizeScreen(window.innerWidth)
+            }
 		})
 		if(sizeScreen<=1024){
 			document.getElementById('toggleMenu').hidden=false
 		}else{
 			document.getElementById('toggleMenu').hidden=true
 		}
-	},[sizeScreen])
+		return ()=>{cancel=true}
+	})
 	return(<div id="toggleMenu" hidden>
 	     {open?
 	     	<div id="AsideMenu">
 	     	   <div id="AsideMenuContent">
 	     	       <div id="headerAsideMenu">
 	     	     	    <div className="logoContent">
+	     	     	       <div className="logo"></div>
                            <Link className="logo_title" to="" >Dogs App</Link>
                         </div>
                          <button id="toggleBtnClose" onClick={(e)=>setOpen(!open)}>x</button>

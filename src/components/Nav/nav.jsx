@@ -10,11 +10,14 @@ import Logout from './logout';
 export default function Nav(){
     const [sizeScreen ,setSizeScreen]= useState(window.innerWidth)
     useEffect(()=>{
+        let cancel=false
         window.addEventListener('resize',(e)=>{
-            setSizeScreen(window.innerWidth)
+            if(!cancel){
+                setSizeScreen(window.innerWidth)
+            }
         })
-        return ()=>sizeScreen
-    },[sizeScreen])
+        return ()=>{cancel=true}
+    })
     return(
     <header className="header">
         <nav className="nav">

@@ -87,3 +87,19 @@
     background-position: center;
     min-height: fit-content;
 }
+
+
+@media screen and(min-width: 320px) and (max-width:500px){
+   #r_form{
+      width: 350px;
+      #r_img_cont{
+         top: -85px;
+      }
+      #r_dt_section{
+         & label{
+            font-size: 18px;
+         }
+      }
+   }
+
+}
