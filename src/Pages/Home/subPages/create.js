@@ -6,10 +6,11 @@ import axios from 'axios'
 import { useNavigate } from 'react-router';
 import { getAlldogs, setDogsUse,setTemperaments} from '../../../redux/actions/actionsF';
 import { filtTxt } from '../../../components/utilities/txtfilt';
+import TopNavBack from '../../../components/Nav/topbarback.jsx'
 
 export default function Create() {
     let dispatch = useDispatch()
-
+    let [next,setNext]=useState(false)
     let navigate = useNavigate()
     const temps = useSelector(state => state.temperaments)
     const [name, setName] = useState("")
@@ -89,39 +90,39 @@ export default function Create() {
         })
     }
     return (
-        <div className="c_content">
-            <div>
+        <div id="createContent">
+           <TopNavBack/>
                 <form onSubmit={onsubmit} autoComplete="off">
                     <fieldset className="fieldset">
                         <legend>Create a New Breed</legend>
-                        <section>
+                        {!next?<section>
                             <label className="labels">
-                                <span>{!name ? <Alerts msg="empty name field" type="warning" /> : Number(name) ? <Alerts msg="name must be a string" type="warning" /> : <Alerts msg="completed" type="succes" />}</span>
+                                <span>{!name ? <Alerts msg="empty name field" type="warning" /> : Number(name) ? <Alerts msg="name must be a string" type="warning" /> : <Alerts msg="OK" type="succes" />}</span>
                                 Name
                                 <input className="name" name="name" type="text" onChange={handlechange} placeholder="name" value={name} required />
                             </label>
 
                             <label className="labels">
-                                <span>{height.max && !height.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !height.max && height.min ? <Alerts msg="the maximum field is missing" type="warning" /> : height.max && height.min ? <Alerts msg="completed" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
+                                <span>{height.max && !height.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !height.max && height.min ? <Alerts msg="the maximum field is missing" type="warning" /> : height.max && height.min ? <Alerts msg="OK" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
                                 Height
                                 <input className="height" min="1" max="100" type="number" name="min" value={height.min} onChange={handlechange} placeholder="min" required />
                                 <input className="height" min="1" max="100" type="number" name="max" value={height.max} onChange={handlechange} placeholder="max" required />
                             </label>
 
                             <label className="labels">
-                                <span>{weight.max && !weight.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !weight.max && weight.min ? <Alerts msg="the maximum field is missing" type="warning" /> : weight.max && weight.min ? <Alerts msg="completed" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
+                                <span>{weight.max && !weight.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !weight.max && weight.min ? <Alerts msg="the maximum field is missing" type="warning" /> : weight.max && weight.min ? <Alerts msg="OK" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
                                 Weight
                                 <input className="weight" min="1" max="100" type="number" name="min" value={weight.min} onChange={handlechange} placeholder="min" required />
                                 <input className="weight" min="1" max="100" type="number" name="max" value={weight.max} onChange={handlechange} placeholder="max" required />
                             </label>
 
                             <label className="labels">
-                                <span>{years.max && !years.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !years.max && years.min ? <Alerts msg="the maximum field is missing" type="warning" /> : years.max && years.min ? <Alerts msg="completed" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
+                                <span>{years.max && !years.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !years.max && years.min ? <Alerts msg="the maximum field is missing" type="warning" /> : years.max && years.min ? <Alerts msg="OK" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
                                 Age
                                 <input className="years" min="1" max="17" type="number" name="min" value={years.min} onChange={handlechange} placeholder="min" required />
                                 <input className="years" min="1" max="17" type="number" name="max" value={years.max} onChange={handlechange} placeholder="max" required />
                             </label>
-                        </section>
+                        </section>:
                         <section>
                             <label className="labels">
                                 Temperaments
@@ -138,14 +139,14 @@ export default function Create() {
                                 Image
                                 <input type="text" className="fc_Image" placeholder="url" onChange={handlechange} required />
                             </label>
-                        </section>
+                        </section>}                        
+                        
                     </fieldset>
                     <div className="fc_btn_group">
-                        <button className="fc_btn_create" type="submit">create</button>
-                        <button className="fc_btn_cancel" onClick={() => navigate("/home")}>cancel</button>
+                        {!next?<button className="fc_btn_cancel" onClick={() => navigate("/home")}>cancel</button>:<button id="btnBack" type="button" onClick={(e)=>setNext(!next)}>back</button>}
+                        {next?<button className="fc_btn_create" type="submit">create</button>:<button id="btnNext" type="button" onClick={(e)=>setNext(!next)}>next</button>}
                     </div>
 
                 </form>
-            </div>
         </div>)
 }

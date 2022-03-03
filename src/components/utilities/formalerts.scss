@@ -1,13 +1,22 @@
 .warning{
-    color:rgb(187, 2, 2);
+    color:#F74343;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius:5px;
+    position:absolute;
+    right: 0;
 }
 .warning::before{
     content:"!";
 }
 .succes{
-    color: rgb(3, 189, 3);
-    text-shadow: 1px 1px 1px black;
+    color:#5EB848;
+    border-radius:3px;
+    font-weight: 800;
+    font-size: 18px;
+    position:absolute;
+    right: 0;
 }
 .succes::before{
-    content:" ";
+    content:"!";
 }

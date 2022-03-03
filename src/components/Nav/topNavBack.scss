@@ -1,0 +1,21 @@
+#BackNav{
+	position:fixed;
+	width: 100%;
+	top: 0;
+	height: 60px;
+	display: flex;
+	align-items:center;
+	#IconBack{
+		background-image:url("https://img.icons8.com/fluency-systems-regular/96/000000/back.png");
+		background-size:cover;
+		background-repeat:no-repeat;
+		background-position:center;
+		padding:15px 15px;
+		margin-left: 20px;
+		&:hover{
+			border-radius:4em;
+			border:0.2em solid white;
+			box-shadow: inset 0px 0px 10px lightgray;
+		}
+	}
+}
