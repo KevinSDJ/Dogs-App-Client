@@ -1,23 +1,18 @@
 import React from "react";
 import './logout.scss';
-import axios from "axios";
 import { useNavigate } from "react-router";
+import {useDispatch} from 'react-redux'
+import {closeSession} from '../../redux/actions/actionsF'
 
 
 
 export default function Logout(){
-     let navigate= useNavigate()
-   
+    let navigate= useNavigate()
+    let dispatch= useDispatch()
     function onsubmit(e){
         e.preventDefault()
-        axios.get('https://ksdj-dogs-api.herokuapp.com/dogs/logout',{withCredentials:true})
-        .then(resp=>{
-            navigate('/')
-        })
-        .catch((e)=>{
-            alert(`error al cerrar sesion  ${e}`)
-        })
-            
+        dispatch(closeSession())
+        navigate('/')
     }
 
     return (

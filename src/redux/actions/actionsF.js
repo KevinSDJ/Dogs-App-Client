@@ -13,7 +13,9 @@ import {
     CLEAN_SEARCH,
     LOGIN,
     ERROR,
-    REGISTER
+    REGISTER,
+    CLEAR_ERROR,
+    LOGOUT
 } from './actionsT'
 import axios from 'axios'
 import env from 'react-dotenv';
@@ -93,19 +95,44 @@ function registerUser(data){
     }
 }
 function singIn(data){
+
+    if(JSON.parse(localStorage.getItem('DgAppSession'))){
+        let Token=JSON.parse(localStorage.getItem('DgAppSession'))
+        return (dispatch)=>{
+            axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token,withCredentials:true}})
+            .then((res)=>{
+                dispatch({type:LOGIN,payload:res.data.user})
+            },error=>console.log(error))
+        }
+    }
+    
     return (dispatch)=>{
         axios.post(URL+`/login`,data,{withCredentials:true})
         .then(resp=>{
+            console.log(resp)
+            let {Token}=resp.data
+            if(Token){
+                localStorage.setItem("DgAppSession",JSON.stringify(Token))
+            }
             dispatch({type:LOGIN,payload:resp.data.user})
         },(error)=>{
             dispatch({type:ERROR,payload:error})
-        })
+        })}
+    
+    
+}
+
+function clearError(){
+    return (dispatch)=>{
+        dispatch({type:CLEAR_ERROR})
+    }
+}
+function closeSession(){
+    return (dispatch)=>{
+        localStorage.removeItem('DgAppSession')
+        dispatch({type:LOGOUT})
     }
 }
 
 
-
-
-
-
-export{getAlldogs,setDogsUse,filter,setTemperaments,ord,setSearchs,cleanSearch,registerUser,singIn}
+export{getAlldogs,setDogsUse,filter,setTemperaments,ord,setSearchs,cleanSearch,registerUser,singIn,clearError,closeSession}

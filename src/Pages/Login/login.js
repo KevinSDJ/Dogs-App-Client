@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './login.scss';
 
@@ -13,7 +13,7 @@ export default function Login() {
         email:"",
         password:""
     })
-    let {login}=useSelector(state=>state)
+    let {login,errors}=useSelector(state=>state)
     let navigate= useNavigate()
     let dispatch= useDispatch()
     function handleChange(e){
@@ -22,19 +22,29 @@ export default function Login() {
             return r
         })
     }
-    useLayoutEffect(()=>{
+    useEffect(()=>{  
         if(login){
             navigate('/home')
         }
-    },[login, navigate])
+        if(errors){
+            console.log(errors)
+            navigate('/register')
+        }
+    },[login, navigate,errors])
     function onsubmit(e){
         e.preventDefault()
-        dispatch(singIn(state))
+        let action= new Promise((resolve,rejected)=>{
+            dispatch(singIn(state))
+            resolve(true)
+        })
+        action.then(re=>{
+            setState({email:'',password:''})
+        })
     }
     
     return (
         <div id="loginContent">
-                <form id="l_form" onSubmit={onsubmit} autoComplete="off">
+                <form id="l_form" onSubmit={onsubmit} >
                     <div id="l_img_cont"></div>
                     <div id="l_dt_section">
                         <label htmlFor="email">

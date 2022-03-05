@@ -14,7 +14,7 @@ export default function Register() {
         email:"",
         password:""
     })
-    let {reg}=useSelector(state=>state)
+    let {reg,login}=useSelector(state=>state)
     let dispatch= useDispatch()
     let navigate= useNavigate()
     function handleChange(e){
@@ -27,7 +27,10 @@ export default function Register() {
         if(reg){
             navigate('/login')
         }
-    },[navigate, reg])
+        if(login){
+            navigate('/home')
+        }
+    },[navigate, reg,login])
 
     function onsubmit(e){
         e.preventDefault()

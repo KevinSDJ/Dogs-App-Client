@@ -13,6 +13,8 @@ const CLEAN_SEARCH="clean_search";
 const REGISTER="REGISTER";
 const LOGIN="LOGIN"
 const ERROR="ERROR"
+const CLEAR_ERROR="clearError"
+const LOGOUT="logout"
 
 
 export{
@@ -30,5 +32,7 @@ export{
     CLEAN_SEARCH,
     REGISTER,
     LOGIN,
-    ERROR
+    ERROR,
+    CLEAR_ERROR,
+    LOGOUT
 }

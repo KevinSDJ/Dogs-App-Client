@@ -29,9 +29,7 @@ export default function Create() {
     const [temperaments, setTemp] = useState({
         temp: []
     })
-    const [imag, setImage] = useState({
-        url: ""
-    })
+    const [imag, setImage] = useState('')
     function handlechange(e) {
         if (e.target.className === "height") {
             Number(e.target.value) < 100 && setHeight(prev => { return { ...prev, [e.target.name]: e.target.value } })
@@ -46,14 +44,19 @@ export default function Create() {
                 return { ...prev, temp: [...temperaments.temp, Number(e.target.value)] }
 
             })
-        } else if (e.target.className === "fc_Image") {
-            setImage(pre => {
-                return { ...pre, url: e.target.value }
-            })
+        }
+    }
+    function handleFileChange(e){
+        let file= e.target.files[0]
+        const reader=  new FileReader()
+        reader.readAsDataURL(file);
+        reader.onloadend=()=>{
+            setImage(reader.result)
         }
     }
     function onsubmit(e) {
         e.preventDefault()
+        console.log("submit")
         let d = {
             name: filtTxt(name),
             height: `${height.min}-${height.max}`,
@@ -137,13 +140,14 @@ export default function Create() {
                             <hr />
                             <label className="labels">
                                 Image
-                                <input type="text" className="fc_Image" placeholder="url" onChange={handlechange} required />
+                                {console.log(imag)}
+                                <input type="file" className="fc_Image"  placeholder="uploadimage" onChange={handleFileChange} required />
+                                {imag&&<img src={imag}  alt="preview" width="100px"/>}
                             </label>
                         </section>}                        
-                        
                     </fieldset>
                     <div className="fc_btn_group">
-                        {!next?<button className="fc_btn_cancel" onClick={() => navigate("/home")}>cancel</button>:<button id="btnBack" type="button" onClick={(e)=>setNext(!next)}>back</button>}
+                        {!next?<button className="fc_btn_cancel" type="button" onClick={() => navigate("/home")}>cancel</button>:<button id="btnBack" type="button" onClick={(e)=>setNext(!next)}>back</button>}
                         {next?<button className="fc_btn_create" type="submit">create</button>:<button id="btnNext" type="button" onClick={(e)=>setNext(!next)}>next</button>}
                     </div>
 
