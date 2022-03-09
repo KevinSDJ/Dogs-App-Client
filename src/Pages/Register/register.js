@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import './Register.scss';
 import {registerUser} from '../../redux/actions/actionsF.js'
 import {useDispatch,useSelector} from 'react-redux';
+import Modal from './../../components/utilities/modal'
 
 
 
@@ -14,7 +15,7 @@ export default function Register() {
         email:"",
         password:""
     })
-    let {reg,login}=useSelector(state=>state)
+    let {response}=useSelector(state=>state)
     let dispatch= useDispatch()
     let navigate= useNavigate()
     function handleChange(e){
@@ -23,35 +24,29 @@ export default function Register() {
             return r
         })
     }
-    useLayoutEffect(()=>{
-        if(reg){
-            navigate('/login')
-        }
-        if(login){
-            navigate('/home')
-        }
-    },[navigate, reg,login])
 
     function onsubmit(e){
         e.preventDefault()
         dispatch(registerUser(state))
+        setState(prev=>{return {...prev,username:'',email:'',password:''}})
     }
     return (
         <div id="registerContent">
-                <form id="r_form" onSubmit={onsubmit} autoComplete="off">
+               <Modal response={response} redirectEnd={response.type==="success"?'/login':null}/>
+                <form id="r_form" onSubmit={onsubmit} autoComplete="on">
                     <div id="r_img_cont"></div>
                     <div id="r_dt_section">
                         <label htmlFor="username">
                             Username:
-                            <input id="username" name="username" type="text"  onChange={handleChange} required/>
+                            <input id="username" value={state.username} name="username" type="text"  onChange={handleChange} required/>
                         </label>
                         <label htmlFor="email">
                             Email:
-                            <input id="email" name="email" type="email" onChange={handleChange} required />
+                            <input id="email" name="email" value={state.email} type="email" onChange={handleChange} required />
                         </label>
                         <label htmlFor="password">
                             Password:
-                            <input id="password" name="password" type="password" onChange={handleChange} required />
+                            <input id="password" name="password" value={state.password} type="password" onChange={handleChange} required />
                         </label>
                     </div>
                     <div className="r_btn_group">

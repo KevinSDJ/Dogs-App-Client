@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Alerts from '../../../components/utilities/formalerts';
 import './create.scss';
-import axios from 'axios'
 import { useNavigate } from 'react-router';
-import { getAlldogs, setDogsUse,setTemperaments} from '../../../redux/actions/actionsF';
+import { getAlldogs, setDogsUse,createRace} from '../../../redux/actions/actionsF';
 import { filtTxt } from '../../../components/utilities/txtfilt';
 import TopNavBack from '../../../components/Nav/topbarback.jsx'
+import Modal from '../../../components/utilities/modal'
 
 export default function Create() {
     let dispatch = useDispatch()
     let [next,setNext]=useState(false)
     let navigate = useNavigate()
     const temps = useSelector(state => state.temperaments)
+    const {response}= useSelector(state=>state)
     const [name, setName] = useState("")
     const [height, setHeight] = useState({
         min: "",
@@ -54,32 +55,24 @@ export default function Create() {
             setImage(reader.result)
         }
     }
-    function onsubmit(e) {
+    async function onsubmit(e) {
         e.preventDefault()
-        console.log("submit")
         let d = {
             name: filtTxt(name),
             height: `${height.min}-${height.max}`,
             weight: `${weight.min}-${weight.max}`,
             age: `${years.min}-${years.max}`,
             temperaments: temperaments.temp,
-            image: imag.url
+            image: imag
         }
-
-        axios.post('https://ksdj-dogs-api.herokuapp.com/dog', d, { withCredentials: true })
-            .then(r => {
-                setName("")
-                setHeight(prev => { return { ...prev, min: "", max: "" } })
-                setWeight(prev => { return { ...prev, min: "", max: "" } })
-                setYears(prev => { return { ...prev, min: "", max: "" } })
-                setTemp(prev => { return { ...prev, temp: [] } })
-                setImage(prev => { return { ...prev, url: "" } })
-                dispatch(getAlldogs())
-                dispatch(setTemperaments())
-                setTimeout(() => {
-                    dispatch(setDogsUse())
-                }, (2000))
-            })
+        dispatch(createRace(d))
+        setName("")
+        setHeight(prev => { return { ...prev, min: "", max: "" } })
+        setWeight(prev => { return { ...prev, min: "", max: "" } })
+        setYears(prev => { return { ...prev, min: "", max: "" } })
+        setTemp(prev => { return { ...prev, temp: [] } })
+        setImage("")
+            
     }
     function add(e) {
         setTemp(prev => {
@@ -95,6 +88,7 @@ export default function Create() {
     return (
         <div id="createContent">
            <TopNavBack/>
+               <Modal response={response}/>
                 <form onSubmit={onsubmit} autoComplete="off">
                     <fieldset className="fieldset">
                         <legend>Create a New Breed</legend>

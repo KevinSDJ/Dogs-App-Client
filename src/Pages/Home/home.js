@@ -1,26 +1,24 @@
 import React,{useEffect}from 'react';
 import {Outlet,useNavigate} from 'react-router-dom';
 import './home.scss';
-import { getAlldogs, setDogsUse, setTemperaments } from "../../redux/actions/actionsF"
+import { getAlldogs, setDogsUse, setTemperaments ,clearResponse} from "../../redux/actions/actionsF"
 import { useDispatch,useSelector} from "react-redux";
+import Modal from './../../components/utilities/modal'
 
 
 
 export default function Home(){
     let dispatch =useDispatch()
-    let {login}= useSelector(state=>state)
+    let {response}= useSelector(state=>state)
     let navigate= useNavigate()
     useEffect(()=>{
-        if(!login){
-            navigate('/login')
+        if(response){
+            dispatch(clearResponse())
         }
-    },[login,navigate])
+    },[navigate,response])
     useEffect(()=>{
     dispatch(getAlldogs())
     dispatch(setTemperaments())
-    let temDogs=setTimeout(()=>{dispatch(setDogsUse())},(2000))
-
-    return ()=>clearTimeout(temDogs)
   },[dispatch])
     return(
         <div className="home">

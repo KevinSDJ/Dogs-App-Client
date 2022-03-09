@@ -6,6 +6,9 @@ export default function Welcome() {
     let navigate= useNavigate()
     const [sizeScreen ,setSizeScreen]= useState(window.innerWidth)
     let {login} = useSelector(state=>state)
+    const onResize=(e)=>{
+        setSizeScreen(window.innerWidth)
+    }
     useEffect(()=>{
         if(login){
             navigate('/home')
@@ -16,11 +19,9 @@ export default function Welcome() {
 
     //controlador de la pantalla
     useEffect(()=>{
-        window.addEventListener('resize',(e)=>{
-            setSizeScreen(window.innerWidth)
-        })
-        return ()=>sizeScreen
-    },[sizeScreen])
+        window.addEventListener('resize',onResize)
+        return ()=>window.removeEventListener('resize',onResize,false)
+    })
 
 return (
         <div id="w_content">

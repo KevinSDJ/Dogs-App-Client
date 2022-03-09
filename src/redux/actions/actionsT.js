@@ -12,9 +12,10 @@ const SET_SEARCHS="set_searchs";
 const CLEAN_SEARCH="clean_search";
 const REGISTER="REGISTER";
 const LOGIN="LOGIN"
-const ERROR="ERROR"
-const CLEAR_ERROR="clearError"
+const RESPONSE="response"
+const CLEAR_RESPONSE="clearResponse"
 const LOGOUT="logout"
+const CREATERACE="createRace"
 
 
 export{
@@ -32,7 +33,8 @@ export{
     CLEAN_SEARCH,
     REGISTER,
     LOGIN,
-    ERROR,
-    CLEAR_ERROR,
-    LOGOUT
+    RESPONSE,
+    CLEAR_RESPONSE,
+    LOGOUT,
+    CREATERACE
 }

@@ -12,10 +12,11 @@ import {
     SET_SEARCHS,
     CLEAN_SEARCH,
     LOGIN,
-    ERROR,
+    RESPONSE,
     REGISTER,
-    CLEAR_ERROR,
-    LOGOUT
+    CLEAR_RESPONSE,
+    LOGOUT,
+    CREATERACE
 } from './actionsT'
 import axios from 'axios'
 import env from 'react-dotenv';
@@ -28,6 +29,7 @@ function getAlldogs(){
         axios.get(URL+`/dogs`)
         .then(res=>{
             dispatch({type:GET_ALL_DOGS,payload:res.data})
+            dispatch(setDogsUse())
            
         })  
     }
@@ -72,9 +74,7 @@ function setSearchs(input,cb){
             dispatch({type:SET_SEARCHS,payload:res.data})
         })
         .catch(e=>{
-            cb(prev=>{
-                return {...prev,err:" Breed not found"}
-            })
+            dispatch({type:RESPONSE,payload:e.response.data})
         })
     }
 }
@@ -88,10 +88,10 @@ function registerUser(data){
     return (dispatch)=>{
          axios.post(URL+`/register`,data,{withCredentials:true})
          .then(resp=>{
+            dispatch({type:RESPONSE,payload:resp.data})
             dispatch({type:REGISTER})
-         },(error)=>{
-            dispatch({type:ERROR,payload:error})
          })
+         .catch(error=>dispatch({type:RESPONSE,payload:error.response.data}))
     }
 }
 function singIn(data){
@@ -101,30 +101,44 @@ function singIn(data){
         return (dispatch)=>{
             axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token,withCredentials:true}})
             .then((res)=>{
+                dispatch({type:RESPONSE,payload:res.data})
                 dispatch({type:LOGIN,payload:res.data.user})
-            },error=>console.log(error))
+            },error=>dispatch({type:RESPONSE,payload:error.response.data}))
         }
     }
     
     return (dispatch)=>{
         axios.post(URL+`/login`,data,{withCredentials:true})
         .then(resp=>{
-            console.log(resp)
             let {Token}=resp.data
             if(Token){
                 localStorage.setItem("DgAppSession",JSON.stringify(Token))
             }
             dispatch({type:LOGIN,payload:resp.data.user})
+            dispatch({type:RESPONSE,payload:resp.data})
         },(error)=>{
-            dispatch({type:ERROR,payload:error})
+            dispatch({type:RESPONSE,payload:error.response.data})
         })}
     
     
 }
 
-function clearError(){
+function createRace(data){
+    let Token = JSON.parse(localStorage.getItem('DgAppSession'))
     return (dispatch)=>{
-        dispatch({type:CLEAR_ERROR})
+        axios.post(URL+"/dog",data,{headers:{Authorization:"Bearer "+Token,withCredentials:true}})
+        .then(res=>{
+            dispatch({type:RESPONSE,payload:res.data});
+            dispatch(getAlldogs())
+           
+        })
+        .catch(e=>dispatch({type:RESPONSE,payload:e.response.data}))
+    }
+}
+
+function clearResponse(){
+    return (dispatch)=>{
+        setTimeout(()=>{dispatch({type:CLEAR_RESPONSE})},(1000))
     }
 }
 function closeSession(){
@@ -135,4 +149,18 @@ function closeSession(){
 }
 
 
-export{getAlldogs,setDogsUse,filter,setTemperaments,ord,setSearchs,cleanSearch,registerUser,singIn,clearError,closeSession}
+
+export{
+    getAlldogs,
+    setDogsUse,
+    filter,
+    setTemperaments,
+    ord,
+    setSearchs,
+    cleanSearch,
+    registerUser,
+    singIn,
+    clearResponse,
+    closeSession,
+    createRace
+}

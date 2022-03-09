@@ -1,10 +1,9 @@
 import React, {useEffect, useState } from 'react';
-import {useNavigate} from 'react-router-dom'
 import './login.scss';
-
 import {singIn} from '../../redux/actions/actionsF'
 import {useDispatch, useSelector} from 'react-redux';
-
+import Modal from './../../components/utilities/modal'
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -13,7 +12,7 @@ export default function Login() {
         email:"",
         password:""
     })
-    let {login,errors}=useSelector(state=>state)
+    let {session,response}=useSelector(state=>state)
     let navigate= useNavigate()
     let dispatch= useDispatch()
     function handleChange(e){
@@ -23,14 +22,10 @@ export default function Login() {
         })
     }
     useEffect(()=>{  
-        if(login){
+        if(session){
             navigate('/home')
         }
-        if(errors){
-            console.log(errors)
-            navigate('/register')
-        }
-    },[login, navigate,errors])
+    },[session, navigate])
     function onsubmit(e){
         e.preventDefault()
         let action= new Promise((resolve,rejected)=>{
@@ -44,6 +39,7 @@ export default function Login() {
     
     return (
         <div id="loginContent">
+              <Modal response={response}  redirectEnd={response?response.type==="success"?'/home':'/register':null}/>
                 <form id="l_form" onSubmit={onsubmit} >
                     <div id="l_img_cont"></div>
                     <div id="l_dt_section">
