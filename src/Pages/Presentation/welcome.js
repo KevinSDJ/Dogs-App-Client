@@ -1,27 +1,19 @@
 import './welcome.scss';
-import {useState,useEffect} from 'react';
+import {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 export default function Welcome() {
     let navigate= useNavigate()
-    const [sizeScreen ,setSizeScreen]= useState(window.innerWidth)
-    let {login} = useSelector(state=>state)
-    const onResize=(e)=>{
-        setSizeScreen(window.innerWidth)
-    }
+    let {login}= useSelector(state=>state)
     useEffect(()=>{
         if(login){
             navigate('/home')
         }
-    },[login])
+    },[login,navigate])
 
 
 
-    //controlador de la pantalla
-    useEffect(()=>{
-        window.addEventListener('resize',onResize)
-        return ()=>window.removeEventListener('resize',onResize,false)
-    })
+    
 
 return (
         <div id="w_content">

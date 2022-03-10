@@ -4,7 +4,7 @@ import Filter from "../../../components/utilities/filter";
 import Order from "../../../components/utilities/order";
 import './main.scss';
 import Nav from '../../../components/Nav/nav.jsx';
-import Footer from '../../../components/footer/footer.jsx';
+import Footer from '../../../components/footer/footer.js';
 import Modal from '../../../components/utilities/modal'
 const Paginate= lazy(()=>import("../../../components/utilities/pagination"))
 export default function Main(){
