@@ -22,7 +22,7 @@ import axios from 'axios'
 import env from 'react-dotenv';
 
 let {URL_DEV}= env
-let URL=URL_DEV||"https://ksdj-dogs-api.herokuapp.com"
+let URL="https://ksdj-dogs-api.herokuapp.com"
 
 function getAlldogs(){
     return function(dispatch){
@@ -86,7 +86,7 @@ function cleanSearch(){
 
 function registerUser(data){
     return (dispatch)=>{
-         axios.post(URL+`/register`,data,{withCredentials:true})
+         axios.post(URL+`/register`,data)
          .then(resp=>{
             dispatch({type:RESPONSE,payload:resp.data})
             dispatch({type:REGISTER})
@@ -97,7 +97,7 @@ function registerUser(data){
 function singIn(data){
 
     if(JSON.parse(localStorage.getItem('DgAppSession'))){
-        let Token=JSON.parse(localStorage.getItem('DgAppSession'))
+        let Token=JSON.parse(window.localStorage.getItem('DgAppSession'))
         return (dispatch)=>{
             axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token,withCredentials:true}})
             .then((res)=>{
@@ -112,7 +112,7 @@ function singIn(data){
         .then(resp=>{
             let {Token}=resp.data
             if(Token){
-                localStorage.setItem("DgAppSession",JSON.stringify(Token))
+                window.localStorage.setItem("DgAppSession",JSON.stringify(Token))
             }
             dispatch({type:LOGIN,payload:resp.data.user})
             dispatch({type:RESPONSE,payload:resp.data})
@@ -124,7 +124,7 @@ function singIn(data){
 }
 
 function createRace(data){
-    let Token = JSON.parse(localStorage.getItem('DgAppSession'))
+    let Token = JSON.parse(window.localStorage.getItem('DgAppSession'))
     return (dispatch)=>{
         axios.post(URL+"/dog",data,{headers:{Authorization:"Bearer "+Token,withCredentials:true}})
         .then(res=>{

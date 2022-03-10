@@ -23,7 +23,7 @@ import {
 
 
 let initState={
-    session:JSON.parse(localStorage.getItem("DgAppSession"))?true:false,
+    session:JSON.parse(window.localStorage.getItem("DgAppSession"))?true:false,
     userData:{},
     dogs:[],
     dogsUse:[],

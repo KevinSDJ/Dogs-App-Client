@@ -68,6 +68,5 @@ window.env = {
   "npm_command": "start",
   "VTE_VERSION": "6003",
   "INIT_CWD": "/home/seba/Escritorio/MisApps/PiDogs/Dogs-App-Client",
-  "EDITOR": "vi",
-  "URL_DEV": "http://localhost:3002"
+  "EDITOR": "vi"
 };
