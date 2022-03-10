@@ -1,9 +1,9 @@
 import React,{useEffect}from 'react';
 import {Outlet,useNavigate} from 'react-router-dom';
 import './home.scss';
-import { getAlldogs, setDogsUse, setTemperaments ,clearResponse} from "../../redux/actions/actionsF"
+import {getAlldogs,setTemperaments ,clearResponse} from "../../redux/actions/actionsF"
 import { useDispatch,useSelector} from "react-redux";
-import Modal from './../../components/utilities/modal'
+
 
 
 
@@ -15,7 +15,7 @@ export default function Home(){
         if(response){
             dispatch(clearResponse())
         }
-    },[navigate,response])
+    },[navigate,response,dispatch])
     useEffect(()=>{
     dispatch(getAlldogs())
     dispatch(setTemperaments())

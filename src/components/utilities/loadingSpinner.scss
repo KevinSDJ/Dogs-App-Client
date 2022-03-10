@@ -1,0 +1,17 @@
+#loadingSpContainer{
+	background-color:hsl(24, 51%, 21%);
+	position:relative;
+	display: inline-flex;
+	justify-content: center;
+	align-items:center;
+	width: 100vw;
+	height: 100vh;
+}
+#spinner{
+	padding:30px;
+	background-color:transparent;
+	background-image:url("https://img.icons8.com/ios/150/000000/spinner--v2.png");
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+}

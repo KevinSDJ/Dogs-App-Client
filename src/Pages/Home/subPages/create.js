@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alerts from '../../../components/utilities/formalerts';
 import './create.scss';
 import { useNavigate } from 'react-router';
-import { getAlldogs, setDogsUse,createRace} from '../../../redux/actions/actionsF';
+import {createRace} from '../../../redux/actions/actionsF';
 import { filtTxt } from '../../../components/utilities/txtfilt';
 import TopNavBack from '../../../components/Nav/topbarback.jsx'
 import Modal from '../../../components/utilities/modal'
@@ -93,27 +93,27 @@ export default function Create() {
                     <fieldset className="fieldset">
                         <legend>Create a New Breed</legend>
                         {!next?<section>
-                            <label className="labels">
+                            <label htmlFor={'name'} className="labels">
                                 <span>{!name ? <Alerts msg="empty name field" type="warning" /> : Number(name) ? <Alerts msg="name must be a string" type="warning" /> : <Alerts msg="OK" type="succes" />}</span>
                                 Name
                                 <input className="name" name="name" type="text" onChange={handlechange} placeholder="name" value={name} required />
                             </label>
 
-                            <label className="labels">
+                            <label htmlFor={'height'}  className="labels">
                                 <span>{height.max && !height.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !height.max && height.min ? <Alerts msg="the maximum field is missing" type="warning" /> : height.max && height.min ? <Alerts msg="OK" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
                                 Height
                                 <input className="height" min="1" max="100" type="number" name="min" value={height.min} onChange={handlechange} placeholder="min" required />
                                 <input className="height" min="1" max="100" type="number" name="max" value={height.max} onChange={handlechange} placeholder="max" required />
                             </label>
 
-                            <label className="labels">
+                            <label htmlFor={'weight'}  className="labels">
                                 <span>{weight.max && !weight.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !weight.max && weight.min ? <Alerts msg="the maximum field is missing" type="warning" /> : weight.max && weight.min ? <Alerts msg="OK" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
                                 Weight
                                 <input className="weight" min="1" max="100" type="number" name="min" value={weight.min} onChange={handlechange} placeholder="min" required />
                                 <input className="weight" min="1" max="100" type="number" name="max" value={weight.max} onChange={handlechange} placeholder="max" required />
                             </label>
 
-                            <label className="labels">
+                            <label htmlFor={'years'}  className="labels">
                                 <span>{years.max && !years.min ? <Alerts msg="the minimum field is missing" type="warning" /> : !years.max && years.min ? <Alerts msg="the maximum field is missing" type="warning" /> : years.max && years.min ? <Alerts msg="OK" type="succes" /> : <Alerts msg="both fields must be completed" type="warning" />}</span>
                                 Age
                                 <input className="years" min="1" max="17" type="number" name="min" value={years.min} onChange={handlechange} placeholder="min" required />
@@ -121,7 +121,7 @@ export default function Create() {
                             </label>
                         </section>:
                         <section>
-                            <label className="labels">
+                            <label htmlFor={'temperament'}  className="labels">
                                 Temperaments
                                 <div id="temps_preview">{temperaments?.temp.map(e => <li key={Number(e) ? temps[e].name : e} id={e} onClick={remove}>{Number(e) ? temps[e - 1].name : e}<span>x</span></li>)}</div>
                                 <select className="temperaments" onChange={handlechange} required>
@@ -132,10 +132,10 @@ export default function Create() {
 
                             </label>
                             <hr />
-                            <label className="labels">
+                            <label htmlFor={'file'}  className="labels">
                                 Image
                                 {console.log(imag)}
-                                <input type="file" className="fc_Image"  placeholder="uploadimage" onChange={handleFileChange} required />
+                                <input type="file" name="file" className="fc_Image"  placeholder="uploadimage" onChange={handleFileChange} required />
                                 {imag&&<img src={imag}  alt="preview" width="100px"/>}
                             </label>
                         </section>}                        

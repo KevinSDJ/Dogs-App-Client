@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Roboto&display=swap');
+
 .flip_cont {
   background-color: transparent;
   perspective: 1000px;
@@ -43,7 +45,7 @@
   }
 }
 .back {
-  background-color: gray;
+  background-color:  #b6710aad;;
   flex-direction: row-reverse;
   color: white;
   gap: 0 1%;
@@ -65,10 +67,19 @@
   }
 
   a {
+    background-color:rgba(0,0,110,1);
+    padding:5px 10px;
     text-decoration: none;
-    color: blue;
+    font-size: 14px;
+    border-radius:1em;
+    font-family: 'Fredoka', sans-serif;
+    color: white;
     &:hover {
-      color: blueviolet;
+      background-color:rgba(0,0,177,0.38);
+      &:after{
+        content:">";
+        padding-left: 5px;
+      }
     }
   }
 

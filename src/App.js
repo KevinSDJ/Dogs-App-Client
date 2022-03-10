@@ -7,8 +7,10 @@ import Create from "./Pages/Home/subPages/create";
 import Details from "./Pages/Home/subPages/details";
 import {singIn} from './redux/actions/actionsF'
 import Welcome from"./Pages/Presentation/welcome"
+import LoadingSp from './components/utilities/loading'
 const Register =lazy(()=> import("./Pages/Register/register"))
 const Login =lazy(()=>import("./Pages/Login/login"))
+
 
 
 
@@ -29,10 +31,11 @@ export default function App() {
       element={<Welcome/>}/>
       <Route path="/register"
       element={
-        <Suspense fallback={<div>Loading...........</div>}>
+        <Suspense fallback={<LoadingSp/>}>
            <Register/>
         </Suspense>}/>}/>
-      <Route path="/login" element={<Suspense fallback={<div>Loading...........</div>}>
+      <Route path="/login" element={
+        <Suspense delayMs="2000" fallback={<LoadingSp/>}>
            <Login/>
         </Suspense>}/>}/>
       <Route path="/home" element={<Home/>}>
