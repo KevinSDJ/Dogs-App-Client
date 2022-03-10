@@ -126,7 +126,7 @@ function singIn(data){
 function createRace(data){
     let Token = JSON.parse(window.localStorage.getItem('DgAppSession'))
     return (dispatch)=>{
-        axios.post(URL+"/dog",data,{headers:{Authorization:"Bearer "+Token,withCredentials:true}})
+        axios.post(URL+"/dog",data,{headers:{Authorization:"Bearer "+Token}})
         .then(res=>{
             dispatch({type:RESPONSE,payload:res.data});
             dispatch(getAlldogs())
