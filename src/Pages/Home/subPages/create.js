@@ -134,7 +134,6 @@ export default function Create() {
                             <hr />
                             <label htmlFor={'file'}  className="labels">
                                 Image
-                                {console.log(imag)}
                                 <input type="file" name="file" className="fc_Image"  placeholder="uploadimage" onChange={handleFileChange} required />
                                 {imag&&<img src={imag}  alt="preview" width="100px"/>}
                             </label>
