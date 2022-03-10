@@ -28,13 +28,8 @@ export default function Login() {
     },[session, navigate])
     function onsubmit(e){
         e.preventDefault()
-        let action= new Promise((resolve,rejected)=>{
-            dispatch(singIn(state))
-            resolve(true)
-        })
-        action.then(re=>{
-            setState({email:'',password:''})
-        })
+        dispatch(singIn(state))
+        setState({email:'',password:''})
     }
     
     return (
