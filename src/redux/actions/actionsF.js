@@ -99,7 +99,7 @@ function singIn(data){
     if(JSON.parse(localStorage.getItem('DgAppSession'))){
         let Token=JSON.parse(window.localStorage.getItem('DgAppSession'))
         return (dispatch)=>{
-            axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token})
+            axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token}})
             .then((res)=>{
                 dispatch({type:RESPONSE,payload:res.data})
                 dispatch({type:LOGIN,payload:res.data.user})
