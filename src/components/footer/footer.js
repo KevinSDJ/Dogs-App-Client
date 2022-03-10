@@ -5,6 +5,7 @@ import './footer.scss'
 
 export default function Footer() {
 	return(<>
+		<div className="before__footer">
 		<footer className="footer">
 		   <div className="footer__contain">
 		     <div className="footer__links">
@@ -22,5 +23,6 @@ export default function Footer() {
 		     </div>
 		   </div>	
 		</footer>
+		</div>
 		</>)
 }
