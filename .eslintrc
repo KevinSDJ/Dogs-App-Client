@@ -1,9 +1,5 @@
 {
-  "plugins": [
-    "jsx-a11y",
-
-  ],
-  "rules":{
-     "anchor-is-valid":true
-  }
+   "rules": {
+        "jsx-a11y/anchor-has-content": "off"
+    }
 }
