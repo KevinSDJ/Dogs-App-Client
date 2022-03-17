@@ -69,7 +69,7 @@ function ord(value,list){
 }
 function setSearchs(input,cb){
     return function(dispatch){
-        axios.get(URL+`/dogs?name=${input}`)
+        axios.get(URL+`/dogs?name=${input}`,{withCredentials:true})
         .then(res=>{
             dispatch({type:SET_SEARCHS,payload:res.data})
         })
@@ -86,7 +86,7 @@ function cleanSearch(){
 
 function registerUser(data){
     return (dispatch)=>{
-         axios.post(URL+`/register`,data)
+         axios.post(URL+`/register`,data,{withCredentials:true})
          .then(resp=>{
             dispatch({type:RESPONSE,payload:resp.data})
             dispatch({type:REGISTER})
@@ -99,7 +99,7 @@ function singIn(data){
     if(JSON.parse(localStorage.getItem('DgAppSession'))){
         let Token=JSON.parse(window.localStorage.getItem('DgAppSession'))
         return (dispatch)=>{
-            axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token}})
+            axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token},withCredentials:true})
             .then((res)=>{
                 dispatch({type:RESPONSE,payload:res.data})
                 dispatch({type:LOGIN,payload:res.data.user})
