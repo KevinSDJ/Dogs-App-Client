@@ -19,4 +19,4 @@ steps to test the app on your machine:
 * once the dependencies are installed, run npm start to run the app, (it will open in your default browser)
   
 If you want to see the application quickly working, you can enter this [link](https://dogs-app-client.vercel.app/)
-Link to my api repository  [link](https://github.com/KevinSDJ/api-dogs)
+#Link to my api repository  [link](https://github.com/KevinSDJ/api-dogs)
