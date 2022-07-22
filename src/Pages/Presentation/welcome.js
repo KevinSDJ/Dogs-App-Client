@@ -21,7 +21,7 @@ return (
                 <div id="w_section_izq">
                    <div id="w_text_section">
                       <p className="w_title">Welcome to</p>
-                      <h5 id="w_s_title">DogsApp <span className="w_title_icon"></span></h5>
+                      <h5 id="w_s_title">WikiDogs <span className="w_title_icon"></span></h5>
                    </div>
                     <div id="w_btn_group">
                        <button className="w_btn" onClick={()=>navigate('login')}>login</button>
