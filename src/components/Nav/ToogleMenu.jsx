@@ -1,6 +1,6 @@
 import React,{useState,useEffect}from 'react';
 import {Link} from 'react-router-dom'
-import Logout from './logout';
+
 import Search from '../Search/Searchbar'
 
 export default function Menu(){
@@ -36,7 +36,6 @@ export default function Menu(){
                       <li><Link className="link" to="create">create</Link></li>
                    </ul>
                    <Search/>
-	     	       <Logout/>
 	     	       </div>
 		        </div>
 	     	</div>

@@ -10,11 +10,8 @@ const WEIGHT_MIN="weight_min";
 const WEIGHT_MAX="weight_max";
 const SET_SEARCHS="set_searchs";
 const CLEAN_SEARCH="clean_search";
-const REGISTER="REGISTER";
-const LOGIN="LOGIN"
 const RESPONSE="response"
 const CLEAR_RESPONSE="clearResponse"
-const LOGOUT="logout"
 const CREATERACE="createRace"
 
 
@@ -31,10 +28,7 @@ export{
     WEIGHT_MAX,
     SET_SEARCHS,
     CLEAN_SEARCH,
-    REGISTER,
-    LOGIN,
     RESPONSE,
     CLEAR_RESPONSE,
-    LOGOUT,
     CREATERACE
 }

@@ -13,25 +13,18 @@ import {
     CLEAN_SEARCH,
     WEIGHT_MIN,
     WEIGHT_MAX,
-    REGISTER,
-    LOGIN,
     CLEAR_RESPONSE,
     RESPONSE,
-    LOGOUT
 } from '../actions/actionsT';
 
 
 
 let initState={
-    session:JSON.parse(window.localStorage.getItem("DgAppSession"))?true:false,
-    userData:{},
     dogs:[],
     dogsUse:[],
     temperaments:[],
     searchs:[],
-    response:'',
-    reg:false,
-    login:false
+    response:''
 }
 
 
@@ -61,16 +54,10 @@ export default function root(state=initState,action){
             return {...state,searchs:state.searchs.concat(action.payload)}
         case CLEAN_SEARCH:
             return {...state,searchs:[]}
-        case REGISTER:
-            return {...state,reg:true}
-        case LOGIN:
-             return {...state,userData:action.payload,login:true}
         case RESPONSE:
              return {...state,response:action.payload}
         case CLEAR_RESPONSE:
              return {...state,response:''}
-        case LOGOUT:
-             return {...state,login:false}
         default:return state
     }
 }

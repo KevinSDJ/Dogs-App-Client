@@ -11,12 +11,8 @@ import {
     WEIGHT_MAX,
     SET_SEARCHS,
     CLEAN_SEARCH,
-    LOGIN,
     RESPONSE,
-    REGISTER,
     CLEAR_RESPONSE,
-    LOGOUT,
-    CREATERACE
 } from './actionsT'
 import axios from 'axios'
 import env from 'react-dotenv';
@@ -84,49 +80,10 @@ function cleanSearch(){
 }
 
 
-function registerUser(data){
-    return (dispatch)=>{
-         axios.post(URL+`/register`,data,{withCredentials:true})
-         .then(resp=>{
-            dispatch({type:RESPONSE,payload:resp.data})
-            dispatch({type:REGISTER})
-         })
-         .catch(error=>dispatch({type:RESPONSE,payload:error.response.data}))
-    }
-}
-function singIn(data){
-
-    if(JSON.parse(localStorage.getItem('DgAppSession'))){
-        let Token=JSON.parse(window.localStorage.getItem('DgAppSession'))
-        return (dispatch)=>{
-            axios.post(URL+`/login`,null,{headers:{Authorization:"Bearer "+Token},withCredentials:true})
-            .then((res)=>{
-                dispatch({type:RESPONSE,payload:res.data})
-                dispatch({type:LOGIN,payload:res.data.user})
-            },error=>dispatch({type:RESPONSE,payload:error.response.data}))
-        }
-    }
-    
-    return (dispatch)=>{
-        axios.post(URL+`/login`,data)
-        .then(resp=>{
-            let {Token}=resp.data
-            if(Token){
-                window.localStorage.setItem("DgAppSession",JSON.stringify(Token))
-            }
-            dispatch({type:LOGIN,payload:resp.data.user})
-            dispatch({type:RESPONSE,payload:resp.data})
-        },(error)=>{
-            dispatch({type:RESPONSE,payload:error.response.data})
-        })}
-    
-    
-}
-
 function createRace(data){
-    let Token = JSON.parse(window.localStorage.getItem('DgAppSession'))
+    
     return (dispatch)=>{
-        axios.post(URL+"/dog",data,{headers:{Authorization:"Bearer "+Token}})
+        axios.post(URL+"/dog",data)
         .then(res=>{
             dispatch({type:RESPONSE,payload:res.data});
             dispatch(getAlldogs())
@@ -141,12 +98,6 @@ function clearResponse(){
         setTimeout(()=>{dispatch({type:CLEAR_RESPONSE})},(1000))
     }
 }
-function closeSession(){
-    return (dispatch)=>{
-        localStorage.removeItem('DgAppSession')
-        dispatch({type:LOGOUT})
-    }
-}
 
 
 
@@ -158,9 +109,6 @@ export{
     ord,
     setSearchs,
     cleanSearch,
-    registerUser,
-    singIn,
     clearResponse,
-    closeSession,
     createRace
 }

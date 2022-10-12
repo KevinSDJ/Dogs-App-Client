@@ -1,9 +1,9 @@
-import React ,{useEffect,useState}from 'react';
+import React ,{useEffect,useState} from 'react';
 import {Link} from 'react-router-dom';
 import './nav.scss';
 import Search from '../Search/Searchbar';
 import Menu from './ToogleMenu'
-import Logout from './logout';
+
 
 
 
@@ -32,7 +32,6 @@ export default function Nav(){
            {sizeScreen<=1024?null: <ul className="links">
                <li><Link className="link" to="create">create</Link></li>
            </ul>}
-           {sizeScreen<=1024?null:<Logout/>}
         </nav>
     </header>
     )
