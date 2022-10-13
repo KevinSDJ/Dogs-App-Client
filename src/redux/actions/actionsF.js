@@ -18,7 +18,7 @@ import axios from 'axios'
 import env from 'react-dotenv';
 
 let {URL_DEV}= env
-let URL="https://ksdj-dogs-api.herokuapp.com"
+let URL="https://api-wiki-dogs.onrender.com"
 
 function getAlldogs(){
     return function(dispatch){
