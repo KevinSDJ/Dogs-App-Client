@@ -1,6 +1,7 @@
 .home{
     position: relative;
     height: auto;
+    overflow-x: hidden;
 }
 .home::before{
     content:" ";

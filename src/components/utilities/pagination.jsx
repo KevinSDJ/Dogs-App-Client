@@ -11,7 +11,7 @@ const PagesRender= lazy(()=>import("../main/pagesRender"))
 
 
 export default function Paginate() {
-  const [currentPage, setCurrP] = React.useState(1)
+  const [currentPage, setCurrP] = useState(1)
   const [sizeScreen ,setSizeScreen]= useState(window.innerWidth)
     useEffect(()=>{
         window.addEventListener('resize',(e)=>{

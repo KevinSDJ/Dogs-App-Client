@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import './details.scss';
 import TopNavBack from '../../../components/Nav/topbarback.jsx'
 

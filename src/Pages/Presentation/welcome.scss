@@ -7,7 +7,7 @@
     justify-content: center;
     background-color: #50301A;
     font-family: -apple-system,Roboto;
-    background-image: url('../../media/Rectangle\ 3\ \(2\).webp');
+    background-image: url('../../assets/Rectangle\ 3\ \(2\).webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;  
@@ -21,7 +21,7 @@
     grid-template-rows: repeat(1, 1fr);
     margin: 0 auto;
     #w_dogs_img{
-    background-image: url('../../media/kisspng-german-shepherd-puppy-dog-breed-dog-houses-dogs-5aba18b8dc99b9\ 1\ \(1\).webp');
+    background-image: url('../../assets/kisspng-german-shepherd-puppy-dog-breed-dog-houses-dogs-5aba18b8dc99b9\ 1\ \(1\).webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -51,7 +51,7 @@
         justify-content: center;
        }
       .w_title_icon{
-          background-image:url('../../media/Group\ 1.webp') ;
+          background-image:url('../../assets/Group\ 1.webp') ;
           background-repeat: no-repeat;
           background-size: contain;
           background-position: center;
@@ -85,7 +85,7 @@
     }
 }
 
-@media screen and(min-width: 300px) and (max-width:760px){
+@media screen and (min-width: 300px) and (max-width:760px){
   #w_content{
     align-items:flex-start;
     #w_Box{
@@ -110,9 +110,4 @@
     }
   }
 
-}
-
-
-
-
- 
+} 

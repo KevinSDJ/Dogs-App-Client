@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Alerts from '../../../components/utilities/formalerts';
-import './create.scss';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import {createRace} from '../../../redux/actions/actionsF';
 import { filtTxt } from '../../../components/utilities/txtfilt';
 import TopNavBack from '../../../components/Nav/topbarback.jsx'
 import Modal from '../../../components/utilities/modal'
+import './create.scss';
 
 export default function Create() {
     let dispatch = useDispatch()
