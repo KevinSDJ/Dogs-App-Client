@@ -1,4 +1,4 @@
-import React,{useEffect}from 'react';
+import {useEffect}from 'react';
 import {Outlet,useNavigate} from 'react-router-dom';
 import './home.scss';
 import {getAlldogs,setTemperaments ,clearResponse} from "../../redux/actions/actionsF"

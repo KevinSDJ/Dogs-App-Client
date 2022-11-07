@@ -1,4 +1,4 @@
-import React, {Suspense,lazy} from "react";
+import {Suspense,lazy} from "react";
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Main from "./Pages/Home/subPages/main";
 import Create from "./Pages/Home/subPages/create";

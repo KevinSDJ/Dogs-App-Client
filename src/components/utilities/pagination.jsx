@@ -1,4 +1,4 @@
-import React ,{lazy,Suspense,useState,useEffect}from "react";
+import {lazy,Suspense,useState,useEffect}from "react";
 import './pagination.scss';
 import { useSelector } from 'react-redux';
 import CardContent from "../main/cardContent";

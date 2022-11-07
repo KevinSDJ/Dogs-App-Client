@@ -1,5 +1,5 @@
-import './welcome.scss';
 import {useNavigate} from 'react-router-dom';
+import './welcome.scss';
 
 export default function Welcome() {
     let navigate= useNavigate()

@@ -1,11 +1,11 @@
-import React ,{useState,useLayoutEffect} from'react';
-import './modal.scss';
+import {useState,useLayoutEffect} from'react';
 import Success from '../../media/success-svgrepo-com.svg'
 import Warning from '../../media/triangular-warning-signal-svgrepo-com.svg'
 import Err from '../../media/error-svgrepo-com.svg'
 import {clearResponse} from '../../redux/actions/actionsF'
 import {useDispatch,useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
+import './modal.scss';
 
 
 

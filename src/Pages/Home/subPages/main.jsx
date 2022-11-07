@@ -1,10 +1,10 @@
-import React,{lazy,Suspense}from "react";
+import {lazy,Suspense} from "react";
 import {useSelector} from 'react-redux'
 import Filter from "../../../components/utilities/filter";
 import Order from "../../../components/utilities/order";
 import './main.scss';
 import Nav from '../../../components/Nav/nav.jsx';
-import Footer from '../../../components/footer/footer.js';
+import Footer from '../../../components/footer/footer.jsx';
 import Modal from '../../../components/utilities/modal'
 const Paginate= lazy(()=>import("../../../components/utilities/pagination"))
 export default function Main(){

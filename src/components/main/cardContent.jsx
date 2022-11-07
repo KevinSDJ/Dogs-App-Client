@@ -1,4 +1,3 @@
-import React from "react";
 import { CardDogs } from "./Card";
 import './cardCont.scss';
 

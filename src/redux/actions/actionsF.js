@@ -1,23 +1,7 @@
-import {
-    GET_ALL_DOGS,
-    SET_DOGS_USE,
-    FILT_TYPE_EXIST,
-    FILT_TYPE_CREATED,
-    FILT_TYPE,
-    SET_TEMPERAMENTS,
-    ORDER_AZ,
-    ORDER_ZA,
-    WEIGHT_MIN,
-    WEIGHT_MAX,
-    SET_SEARCHS,
-    CLEAN_SEARCH,
-    RESPONSE,
-    CLEAR_RESPONSE,
-} from './actionsT'
-import axios from 'axios'
-import env from 'react-dotenv';
 
-let {URL_DEV}= env
+
+import axios from 'axios'
+
 let URL="https://api-wiki-dogs.onrender.com"
 
 function getAlldogs(){

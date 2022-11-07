@@ -1,8 +1,8 @@
 import { useState ,useEffect} from "react";
-import './searchbar.scss';
 import { setSearchs,clearResponse} from "../../redux/actions/actionsF";
 import { useDispatch,useSelector} from "react-redux";
 import Modal from '../utilities/modal'
+import './searchbar.scss';
 
 
 

@@ -1,4 +1,3 @@
-import React from "react";
 import './formalerts.scss'
 
 export default function Alerts(props){

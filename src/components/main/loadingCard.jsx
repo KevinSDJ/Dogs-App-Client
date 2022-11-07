@@ -1,4 +1,3 @@
-import React from "react";
 import './loadingCard.scss';
 
 export default function LoadingSpinner({ isLoading }) {

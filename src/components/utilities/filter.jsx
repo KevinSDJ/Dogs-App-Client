@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {filter, setDogsUse} from '../../redux/actions/actionsF';
 import {useDispatch, useSelector} from 'react-redux'
 import './filter.scss';

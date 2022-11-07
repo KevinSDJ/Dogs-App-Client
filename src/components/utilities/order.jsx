@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch} from "react-redux";
 import { ord, setDogsUse } from "../../redux/actions/actionsF";
 import './order.scss';
