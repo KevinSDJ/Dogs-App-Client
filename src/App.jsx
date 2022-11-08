@@ -3,6 +3,7 @@ import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Main from "./Pages/Home/subPages/main";
 import Create from "./Pages/Home/subPages/create";
 import Details from "./Pages/Home/subPages/details";
+import Loading from "./components/loading";
 
 const Home= lazy(()=>{
   return new Promise(resolve=>{
@@ -20,7 +21,7 @@ const Welcome= lazy(()=>{
 export default function App() {
   return (
     <BrowserRouter>
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<Loading/>}>
       <Routes>
       <Route  path="/" element={<Welcome/>}/>
       <Route path="/home" element={<Home/>}>
