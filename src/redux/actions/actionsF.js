@@ -15,7 +15,7 @@ import {GET_ALL_DOGS,
 
 import axios from 'axios'
 
-let URL="https://api-wiki-dogs.onrender.com"
+let URL="https://wikidogs-api.fly.dev"
 
 function getAlldogs(){
     return function(dispatch){
